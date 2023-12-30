@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from jogador.models import Jogador, Carta, Pais
+from jogador.models import Jogador, Carta, Pais, PaisFronteiras
 import random
 
 
@@ -33,7 +33,97 @@ def limpa_dados_do_db():
 
 
 def adiciona_paises_no_db():
-    paises = ['BRA','URU','ARG','BOL','PER','CHI','PAR','EQU','COL','VEN','SUR','GUI']
+    # limpa todas as linhas existentes na tabela Pais
+    Pais.objects.all().delete()
+
+    paises = [
+        {'nome': 'BRA', 'tropas': 1},
+        {'nome': 'URU', 'tropas': 1},
+        {'nome': 'ARG', 'tropas': 1},
+        {'nome': 'BOL', 'tropas': 1},
+        {'nome': 'PER', 'tropas': 1},
+        {'nome': 'CHI', 'tropas': 1},
+        {'nome': 'PAR', 'tropas': 1},
+        {'nome': 'EQU', 'tropas': 1},
+        {'nome': 'COL', 'tropas': 1},
+        {'nome': 'VEN', 'tropas': 1},
+        {'nome': 'SUR', 'tropas': 1},
+        {'nome': 'GUI', 'tropas': 1},
+    ]
+
+    for pais_info in paises:
+        Pais.objects.create(nome=pais_info['nome'], tropas=pais_info['tropas'])
+
+    print('Tabela de Paises Atualizadas')
+
+
+    # Limpa todos os dados existentes na tabela Fronteiras
+    PaisFronteiras.objects.all().delete()
+
+    dados_fronteiras = [
+        {'id': 34, 'pais': 'GUI', 'pais_fronteira': 'VEN'},
+        {'id': 33, 'pais': 'GUI', 'pais_fronteira': 'SUR'},
+        {'id': 32, 'pais': 'SUR', 'pais_fronteira': 'GUI'},
+        {'id': 31, 'pais': 'SUR', 'pais_fronteira': 'VEN'},
+        {'id': 30, 'pais': 'SUR', 'pais_fronteira': 'BRA'},
+        {'id': 29, 'pais': 'VEN', 'pais_fronteira': 'COL'},
+        {'id': 28, 'pais': 'VEN', 'pais_fronteira': 'SUR'},
+        {'id': 27, 'pais': 'VEN', 'pais_fronteira': 'GUI'},
+        {'id': 26, 'pais': 'COL', 'pais_fronteira': 'VEN'},
+        {'id': 25, 'pais': 'COL', 'pais_fronteira': 'VEN'},
+        {'id': 24, 'pais': 'COL', 'pais_fronteira': 'PAR'},
+        {'id': 23, 'pais': 'EQU', 'pais_fronteira': 'COL'},
+        {'id': 22, 'pais': 'EQU', 'pais_fronteira': 'PAR'},
+        {'id': 21, 'pais': 'PAR', 'pais_fronteira': 'EQU'},
+        {'id': 20, 'pais': 'PAR', 'pais_fronteira': 'COL'},
+        {'id': 19, 'pais': 'PAR', 'pais_fronteira': 'CHI'},
+        {'id': 18, 'pais': 'CHI', 'pais_fronteira': 'PAR'},
+        {'id': 17, 'pais': 'CHI', 'pais_fronteira': 'PER'},
+        {'id': 16, 'pais': 'CHI', 'pais_fronteira': 'BOL'},
+        {'id': 15, 'pais': 'PER', 'pais_fronteira': 'CHI'},
+        {'id': 14, 'pais': 'PER', 'pais_fronteira': 'BOL'},
+        {'id': 13, 'pais': 'PER', 'pais_fronteira': 'BRA'},
+        {'id': 12, 'pais': 'BOL', 'pais_fronteira': 'CHI'},
+        {'id': 11, 'pais': 'BOL', 'pais_fronteira': 'PER'},
+        {'id': 10, 'pais': 'BOL', 'pais_fronteira': 'ARG'},
+        {'id': 9, 'pais': 'ARG', 'pais_fronteira': 'BOL'},
+        {'id': 8, 'pais': 'ARG', 'pais_fronteira': 'BRA'},
+        {'id': 7, 'pais': 'ARG', 'pais_fronteira': 'URU'},
+        {'id': 6, 'pais': 'URU', 'pais_fronteira': 'ARG'},
+        {'id': 5, 'pais': 'URU', 'pais_fronteira': 'BRA'},
+        {'id': 4, 'pais': 'BRA', 'pais_fronteira': 'SUR'},
+        {'id': 3, 'pais': 'BRA', 'pais_fronteira': 'PER'},
+        {'id': 2, 'pais': 'BRA', 'pais_fronteira': 'ARG'},
+        {'id': 1, 'pais': 'BRA', 'pais_fronteira': 'URU'},
+    ]
+
+    for fronteira_info in dados_fronteiras:
+        pais_origem = Pais.objects.get(nome=fronteira_info['pais'])
+        pais_fronteira = Pais.objects.get(nome=fronteira_info['pais_fronteira'])
+        
+        PaisFronteiras.objects.create(
+            id=fronteira_info['id'],
+            pais=pais_origem,
+            pais_fronteira=pais_fronteira
+        )
+
+    print('Tabela de Fronteiras Atualizadas')
+
+    Carta.objects.all().delete()
+
+    dados_cartas = [
+        {'valor': 1, 'icone': '🤡'},
+        {'valor': 2, 'icone': '🟩'},
+        {'valor': 3, 'icone': '🟡'},
+        {'valor': 4, 'icone': '🔺'},
+    ]
+
+    for carta_info in dados_cartas:
+        Carta.objects.create(
+            tipo=carta_info['icone'],
+        )
+
+    print('Tabela de Cartas Atualizadas')
 
 
 def sortear_paises_para_jogadores():
@@ -56,11 +146,31 @@ def sortear_paises_para_jogadores():
 
 
 def default(request):
+    adiciona_paises_no_db()
     sortear_paises_para_jogadores()
+
     return redirect('startGame', jogador_atual_id=1)
 
 
+
+# Deve ser chamada sempre quando for DISTRIBUIR TROPAS do jogador
+def distribuicao_de_tropas(nome_jogador):
+    # Retorna quantas tropas cada jogador vai ter para distribuir
+    # Pega os paises de posse do jogador e multiplica por 2x
+    jogador = Jogador.objects.get(nome=nome_jogador)
+    lista_paises = list(map(lambda item: item['nome'], jogador.paises.values('nome')))
+
+    jogador.tropas_distribuir = len(lista_paises) * 2
+    jogador.save()
+
+    print(f'Tropas Distribuidas para jogador: {jogador} / Tropas: {len(lista_paises) * 2}')
+
+
+
 def startGame(request, jogador_atual_id):
+
+    ################################# Atualiza dados de Paises e Jogadores #################################
+
     paises = Pais.objects.all()
     jogadores = Jogador.objects.all()
 
@@ -87,6 +197,7 @@ def startGame(request, jogador_atual_id):
         }
         dados_paises[pais.nome] = dados_pais
 
+    ##############################################################################################
 
     jogadores_list = list(jogadores)
 
@@ -105,10 +216,7 @@ def startGame(request, jogador_atual_id):
     jogador_vez_nome = jogadores_list[jogador_atual_id - 1]
 
     # Tropas para distribuir
-    # Pega os paises de posse do jogador e multiplica por 2x
-    paises_do_jogador = Jogador.objects.get(nome=jogador_vez_nome)
-    lista_paises = list(map(lambda item: item['nome'], paises_do_jogador.paises.values('nome')))
-    tropas_para_distribuir = len(lista_paises) * 2
+    distribuicao_de_tropas(jogador_vez_nome)
 
     # Imprima o jogador e os países
     #print(f'Jogador: {paises_do_jogador}, Países: {lista_paises}, Tropas: {tropas_para_distribuir}, a: {len(lista_paises)}')
@@ -138,7 +246,7 @@ def startGame(request, jogador_atual_id):
         'jogadores': dados_jogadores,
         'jogador_atual_id': jogador_atual_id,
         'ids_jogadores': ids_jogadores,
-        'tropas_para_distribuir': tropas_para_distribuir,
+        'tropas_para_distribuir': Jogador.objects.get(nome=jogador_vez_nome).tropas_distribuir,
         'lista_paises_jogador_atual': lista_paises,
     })
 
@@ -179,49 +287,3 @@ def proximoJogador(request):
             jog = int(jogador_atual_id) + 1
     return redirect('startGame', jogador_atual_id=jog)
 
-
-
-# Fronteiras
-
-# 34	GUI	VEN
-# 33	GUI	SUR
-# 32	SUR	GUI
-# 31	SUR	VEN
-# 30	SUR	BRA
-# 29	VEN	COL
-# 28	VEN	SUR
-# 27	VEN	GUI
-# 26	COL	VEN
-# 25	COL	VEN
-# 24	COL	PAR
-# 23	EQU	COL
-# 22	EQU	PAR
-# 21	PAR	EQU
-# 20	PAR	COL
-# 19	PAR	CHI
-# 18	CHI	PAR
-# 17	CHI	PER
-# 16	CHI	BOL
-# 15	PER	CHI
-# 14	PER	BOL
-# 13	PER	BRA
-# 12	BOL	CHI
-# 11	BOL	PER
-# 10	BOL	ARG
-# 9	    ARG	BOL
-# 8	    ARG	BRA
-# 7	    ARG	URU
-# 6	    URU	ARG
-# 5	    URU	BRA
-# 4	    BRA	SUR
-# 3	    BRA	PER
-# 2	    BRA	ARG
-# 1	    BRA	URU
-
-
-# Cartas
-
-# 4	🤡
-# 3	🟩
-# 2	🟡
-# 1	🔺

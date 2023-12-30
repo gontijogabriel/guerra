@@ -1,7 +1,7 @@
 from django.db import models
 
 class Pais(models.Model):
-    nome = models.CharField(max_length=255, unique=True, null=False, blank=False)
+    nome = models.CharField(max_length=255, null=False, blank=False)
     tropas = models.IntegerField(null=False, blank=False, default=1)
     jogador = models.ForeignKey('Jogador', on_delete=models.SET_NULL, null=True, blank=True, related_name='paises_jogador')
 
