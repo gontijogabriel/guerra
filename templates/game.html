@@ -1,0 +1,330 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerra</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <main>
+
+        <div class="top-container">
+
+            <div class="trocas-container">
+                <div class="troca">
+                    <div>Trocas</div>
+                    <div class="troca-linha">1ª ➖ 4 🗡️</div>
+                    <div class="troca-linha">2ª ➖ 6 🗡️</div>
+                    <div class="troca-linha">3ª ➖ 8 🗡️</div>
+                    <div class="troca-linha">4ª ➖ 12 🗡️</div>
+                    <div class="troca-linha">5ª ➖ 14 🗡️</div>
+                    <div class="troca-linha">6ª ➖ 18 🗡️</div>
+                    <div class="troca-linha">7ª ➖ 22 🗡️</div>
+                    <div class="troca-linha">8ª ➖ 26 🗡️</div>
+                    <div class="troca-linha">9ª ➖ 30 🗡️</div>
+                </div>
+            </div>
+    
+            <div class="game-container">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="800" height="600" viewBox="0 0 1080 1080" xml:space="preserve">
+                    <rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
+                    
+                    <!-- PARAGUAI -->
+                    <g transform="matrix(3.73 0 0 3.64 806.67 668.84)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="PAR" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.PAR.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">PAR</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.PAR.tropas }}</text>
+                    </g>
+
+
+                    <!-- COLOMBIA -->
+                    <g transform="matrix(2.2 0 0 2.2 658.06 815.76)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="COL" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.COL.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">COL</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.COL.tropas }}</text>
+                    </g>
+
+                    <!-- EQUADOR -->
+                    <g transform="matrix(2.38 0 0 2.38 806.01 882.66)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="EQU" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.EQU.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">EQU</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.EQU.tropas }}</text>
+                    </g>
+                    <!-- CHILE -->
+                    <g transform="matrix(2.23 0 0 2.23 753.92 465.69)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="CHI" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.CHI.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">CHI</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.CHI.tropas }}</text>
+                    </g>
+                    <!-- PERU -->
+                    <g transform="matrix(1.79 0 0 1.79 614.08 428.07)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="PER" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.PER.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">PER</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.PER.tropas }}</text>
+                    </g>
+                    <!-- BRASIL -->
+                    <g transform="matrix(4.59 0 0 4.59 387.71 446.7)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="BRA" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.BRA.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">BRA</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.BRA.tropas }}</text>
+                    </g>
+                    <!-- BOLIVIA -->
+                    <g transform="matrix(3.73 0 0 3.64 713.27 260.59)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="BOL" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.BOL.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">BOL</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.BOL.tropas }}</text>
+                    </g>
+                    <!-- ARGENTINA -->
+                    <g transform="matrix(2.57 0 0 2.57 492.05 217.56)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="ARG" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.ARG.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">ARG</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.ARG.tropas }}</text>
+                    </g>
+                    <!-- URUGUAI -->
+                    <g transform="matrix(2.13 0 0 2.13 325.58 218.15)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="URU" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.URU.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">URU</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.URU.tropas }}</text>
+                    </g>
+                    <!-- SURINAME -->
+                    <g transform="matrix(2.2 0 0 2.2 459.72 675.76)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="SUR" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.SUR.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">SUR</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.SUR.tropas }}</text>
+                    </g>
+                    <!-- VENEZUELA -->
+                    <g transform="matrix(2.81 0 0 2.81 483.11 854.05)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="VEN" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.VEN.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">VEN</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.VEN.tropas }}</text>
+                    </g>
+                    <!-- GUIANA -->
+                    <g transform="matrix(3.73 0 0 3.64 273.27 765.59)" id="d15dfa29-fdb1-4d48-88f6-60825ec8e2b4" class="pais-svg" name="GUI" onclick="obterValorName(this)">
+                        <circle style="stroke: rgb(0,0,0); stroke-width: 5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: {{ paises.GUI.jogador.cor }}; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="35" />
+                        <text x="0" y="-5" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">GUI</text>
+                        <text id="" name="" x="0" y="7" text-anchor="middle" alignment-baseline="middle" fill="white" stroke="black" stroke-width="1">{{ paises.GUI.tropas }}</text>
+                    </g>
+                </svg>
+
+            </div>
+    
+            <div class="jogadores-container">
+                <div class="jogadores">
+                    <div>Jogadores</div>
+                    {% for jogador_id, jogador in jogadores.items %}
+                        {% if jogador_vez_nome|lower == jogador.nome|lower %}
+                            <div class="jogador-linha destaque" style="background-color: rgb(86, 182, 129);">{{ jogador.nome }}<span style="background-color: {{ jogador.cor }};" class="cor"></span></div>
+                        {% else %}
+                            <div class="jogador-linha">{{ jogador.nome }}<span style="background-color: {{ jogador.cor }};" class="cor"></span></div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+    
+        </div>
+
+        <div class="down-container">
+
+            <div class="cartas-container">
+                <div class="cartas">
+                    {% if cartas %}
+                        {% for carta in cartas %}
+                            <h1>{{ carta }}</h1>
+                        {% endfor%}
+                    {% else %}
+                        <p>Não Possui Cartas</p>
+                    {% endif %}
+                </div>
+                <div class="botao-trocar">
+                    {% if possui_troca %}
+                    <div class="botao">
+                        Trocar
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="manager-container">
+                <div class="manager">
+                    <div class="manager-texto">
+                        {% if distribuir == True %}
+                            <!-- DISTRIBUIR -->
+                            <h2>Tropas para Distribuir: {{ tropas_para_distribuir }}</h2>
+                        {% endif %}
+                        
+                        {% if atacar == True %}
+                            <!-- ATACAR -->
+                            <h2>Atacar!</h2>
+                        {% endif %}
+
+                        {% if remanejar == True %}
+                            <!-- REMANEJAR -->
+                            <h2>Remanejar!</h2>
+                        {% endif %}
+                    </div>
+                    <div class="manager-acao">
+                        <div class="acao">
+
+                            {% if distribuir == True or atacar == True or remanejar  == True %}
+                                <!-- DISTRIBUIR -->
+                                {% if distribuir == True %}
+                                    <div class="pais" id="paisDistribuir" name="paisDistribuir">Selecione um Pais</div>
+                                {% endif %}
+
+                                <!-- ATACAR -->
+                                {% if atacar == True %}
+                                <div> BRASIL </div>
+                                <div> X </div>
+                                <div> ARGENTINA </div>
+                                {% endif %}
+                                
+                                <!-- REMANEJAR -->
+                                {% if remanejar == True %}
+                                <div> DE > PARA </div>
+                                {% endif %}
+                            {% else %}
+                                <!-- SELECIONE UM PAIS -->
+                                <div>Selecione um pais</div>
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                    <div class="manager-botao">
+                        <!-- DISTRIBUIR -->
+                        {% if distribuir == True %}
+                        <div class="botao-acao-manager">
+                            <form action="{% url 'adicionarTropa' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="inputPaisDistribuir" id="inputPaisDistribuir" value="default_value">
+                                <input type="hidden" name="jogador_atual_id" id="jogador_atual_id" value="{{ jogador_atual_id }}">
+                                <input type="hidden" name="tropas_para_distribuir" id="tropas_para_distribuir" value="{{ tropas_para_distribuir }}">
+                                <input type="hidden" name="lista_paises_jogador_atual" id="lista_paises_jogador_atual" value="{{ lista_paises_jogador_atual }}">
+                                <button type="submit"><h1>+</h1></button>
+                            </form>
+                        </div>
+                        {% endif %}
+
+                        <!-- ATACAR -->
+                        {% if atacar == True %}
+                        <div class="botao-acao-manager">
+                            <form action="POST">
+                                <input type="hidden" name="" id="">
+                                <input type="hidden" name="" id="">
+                                <button type="submit">ATACAR</button>
+                            </form>
+                        </div>
+
+                        <div class="botao-concluir">
+                            <a href="#">CONCLUIR</a>
+                        </div>
+                        {% endif %}
+
+                        <!-- REMANEJAR -->
+                        {% if remanejar == True %}
+                        <div class="botao-acao-manager">
+                            <form action="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="" id="">
+                                <input type="hidden" name="" id="">
+                                <button type="submit"><h1>+</h1></button>
+                            </form>
+                        </div>
+
+                        <div class="botao-concluir">
+                            <form action="{% url 'proximoJogador' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" id="jogador_atual_id" name="jogador_atual_id" value="{{ jogador_atual_id }}">
+                                <input type="submit" value="PASSAR">
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="manager-status">
+                    {% if distribuir == True %}
+                        <div class="status-game" style="background-color: rgb(43, 153, 92);"><h1>🪂</h1></div>
+                    {% else %}
+                        <div class="status-game"><h1>🪂</h1></div>
+                    {% endif %}
+
+                    {% if atacar == True %}
+                        <div class="status-game" style="background-color: rgb(43, 153, 92);"><h1>⚔️</h1></div>
+                    {% else %}
+                        <div class="status-game"><h1>⚔️</h1></div>
+                    {% endif %}
+
+                    {% if remanejar == True %}
+                        <div class="status-game" style="background-color: rgb(43, 153, 92);"><h1>♻️</h1></div>
+                    {% else %}    
+                        <div class="status-game"><h1>♻️</h1></div>
+                    {% endif %}
+                </div>
+    
+            </div>
+
+            {% if atacar == True %}
+            <div class="atack-container">
+
+                <div class="status">
+
+                    <div class="pais-container">
+                        <div class="pais">
+                            BRASIL
+                        </div>
+                        <div class="pais-tropas">
+                            50
+                        </div>
+                    </div>
+
+                    <div class="meio">
+                        X
+                    </div>
+
+                    <div class="pais-container">
+                        <div class="pais">
+                            ARGENTINA
+                        </div>
+                        <div class="pais-tropas">
+                            69
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="dados">
+                    <div class="dados-atacar">
+                        
+                    </div>
+                    <div class="dados-defender">
+                        
+                    </div>
+
+                </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </main>
+
+
+    <script>
+        function obterValorName(elemento) {
+            var valorName = elemento.getAttribute("name");
+
+            // Exibindo em uma div
+            var divPaisDistribuir = document.getElementById("paisDistribuir");
+            divPaisDistribuir.innerHTML = valorName;
+
+            // Exibindo no input (usando value)
+            var inputPaisDistribuir = document.getElementById("inputPaisDistribuir");
+            inputPaisDistribuir.value = valorName;
+        }
+    </script>
+</body>
+</html>

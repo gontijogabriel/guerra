@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&family=Roboto+Condensed&family=Roboto+Mono:ital,wght@1,300&family=Roboto:wght@300;400&family=Work+Sans:ital,wght@0,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+main {
+    width: 1366px;
+    height: 728px;
+}
+
+
+/* TOP CONTAINER  */
+.top-container {
+    width: 100%;
+    height: 70%;
+    display: flex;
+}
+.trocas-container {
+    /* border: 1px solid black; */
+    margin: 5px;
+    width: 15%;
+    height: 97%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.troca {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #e2e2e2;
+    padding: 10px 0;
+    border-radius: 12px;
+    border: 1px solid black;
+}
+.troca-linha {
+    width: 80%;
+    height: 35%;
+    border: 3px solid black;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e2e2;
+}
+.game-container {
+    border: 1px solid black;
+    margin: 5px;
+    width: 70%;
+    height: 97%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.svg-game {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.jogadores-container {
+    margin: 5px;
+    width: 15%;
+    height: 97%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jogadores {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #e2e2e2;
+    padding: 10px 0;
+    border-radius: 12px;
+    border: 1px solid black;
+}
+.jogador-linha {
+    width: 80%;
+    height: 35%;
+    border: 3px solid black;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e2e2;
+    gap: 0.5rem;
+}
+.cor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+}
+/* FIM TOP CONTAINER  */
+
+
+
+/* DOWN CONTAINER  */
+.down-container {
+    margin: 5px 0;
+    width: 100%;
+    height: 30%;
+    display: flex;
+}
+.cartas-container {
+    /* border: 1px solid black; */
+    margin: 5px;
+    width: 15%;
+    height: 94%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    flex-direction: column;
+}
+.cartas {
+    width: 90%;
+    height: 65%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #e2e2e2;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+.cartas h1 {
+    margin: 5px;
+}
+.botao-trocar {
+    width: 90%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao {
+    width: 75%;
+    height: 75%;
+    background-color: #d30000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 12px;
+}
+.botao:hover {
+    background-color: #d3000067;
+    border: 5px solid black;
+    cursor: pointer;
+}
+/* MANAGER CONTAINER */
+.manager-container {
+    border: 1px solid black;
+    background-color: #e2e2e2;
+    border-radius: 12px;
+    margin: 5px;
+    width: 70%;
+    height: 94%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+.manager {
+    width: 80%;
+    height: 45%;
+    display: flex;
+    gap: 0.5rem;
+}
+.manager-texto {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.manager-texto h2 {
+    background-color: #ccc;
+    border-radius: 12px;
+    padding: 10px;
+    border: 3px solid black;
+}
+.manager-acao {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.acao {
+    width: 90%;
+    height: 100%;
+    background-color: #ccc;
+    border: 3px solid black;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.pais {
+    font-size: 2.0rem;
+}
+.manager-botao {
+    width: 30%;
+    height: 100%;
+    display: flex;
+}
+.botao-acao-manager {
+    width: 45%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-acao-manager button {
+    width: 75px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #00b60f;
+    border: 3px solid black;
+    border-radius: 3px;
+}
+.botao-acao-manager button:hover{
+    background-color: #00e013;
+    border: 5px solid black;
+}
+.botao-concluir {
+    width: 45%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-concluir input {
+    text-decoration: none;
+    background-color: #e2e2e2;
+    padding: 10px;
+    border-radius: 8px;
+    border: 3px solid black;
+    cursor: pointer;
+}
+.botao-concluir input:hover{
+    background-color: #fcfcfc;
+    border: 5px solid black;
+}
+.manager-status {
+    width: 80%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+.status-game h1 {
+    text-align: center;
+}
+.status-game {
+    width: 20%;
+    height: 80%;
+    border: 3px solid black;
+    border-radius: 12px;
+    background-color: #ccc;
+}
+
+/* FIM MANAGER CONTAINER */
+.atack-container {
+    border: 1px solid black;
+    background-color: #e2e2e2;
+    border-radius: 12px;
+    margin: 5px;
+    width: 15%;
+    height: 94%;
+}
+.status {
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.pais-container {
+    width: 40%;
+    height: 100%;
+}
+.pais {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+.pais-tropas {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.meio {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dados {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.dados-atacar {
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
+}
+.dados-defender {
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
+}
+/* FIM DOWN CONTAINER  */
+.pais-svg:hover {
+    cursor: pointer;
+    /* Adicione outras propriedades desejadas para o hover aqui */
+}
+
+
+.pais {
+    font-size: 5rem;
+}

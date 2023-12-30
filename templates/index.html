@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUERRA</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>GUERRA</h1>
+    </header>
+
+    <main>
+        <h2>Jogadores</h2>
+        <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            <label for="#">Adicionar jogador</label>
+            <input type="text" name="nome" id="nome" placeholder="Nome">
+            <input type="color" name="cor" id="cor">
+            <button type="submit">Adicionar</button>
+            {% if msg %}
+              {{ msg }}
+            {% endif %}
+        </form>
+
+        {% if jogadores %}
+            <table>
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Cor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for jog in jogadores %}
+                  <tr>
+                    <td>{{ jog.nome }}</td>
+                    <td style="background-color: {{ jog.cor }}"></td>
+                    <td>
+                        <form action="{% url 'excluir_jogador' jog.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit">Excluir</button>
+                        </form>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+                {% if jogadores|length > 3 %}
+                    <a href="{% url 'default' %}">Start</a>
+                {% endif %}
+        {% endif %}
+    </main>
+
+</body>
+</html>
