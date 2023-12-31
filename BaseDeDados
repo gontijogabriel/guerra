@@ -1,0 +1,26 @@
+
+BASE DE DADOS
+
+@Jogo
+- Jogador_Atual
+- Numero_Trocas (INT) default 0
+- Rodada (INT) default 1
+- Fase (Distribuir, Atacar ou Remanejar) default = Distribuir
+
+@Jogador
+- Nome
+- Cor
+- Tropas_Distribuir
+- Paises
+- Cartas
+
+@Pais
+- Jogador (FK)
+- Nome
+- Tropas
+- Paises_Fronteira (lista com nome dos paises)
+
+@Cartas
+- carta
+- Jogador(FK)
+

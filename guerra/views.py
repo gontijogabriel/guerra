@@ -152,7 +152,6 @@ def default(request):
     return redirect('startGame', jogador_atual_id=1)
 
 
-
 # Deve ser chamada sempre quando for DISTRIBUIR TROPAS do jogador
 def distribuicao_de_tropas(nome_jogador):
     # Retorna quantas tropas cada jogador vai ter para distribuir
@@ -247,7 +246,7 @@ def startGame(request, jogador_atual_id):
         'jogador_atual_id': jogador_atual_id,
         'ids_jogadores': ids_jogadores,
         'tropas_para_distribuir': Jogador.objects.get(nome=jogador_vez_nome).tropas_distribuir,
-        'lista_paises_jogador_atual': lista_paises,
+ #       'lista_paises_jogador_atual': lista_paises,
     })
 
 
