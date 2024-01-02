@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from jogador.models import Jogador, Carta, Pais, PaisFronteiras
+from jogador.models import Jogador
+from guerra.models import Carta, Jogo
+from pais.models import Pais
 import random
 
 

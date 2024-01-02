@@ -1,6 +1,10 @@
 
 BASE DE DADOS
 
+@Cartas
+- carta
+- Jogador(FK)
+
 @Jogo
 - Jogador_Atual
 - Numero_Trocas (INT) default 0
@@ -19,8 +23,4 @@ BASE DE DADOS
 - Nome
 - Tropas
 - Paises_Fronteira (lista com nome dos paises)
-
-@Cartas
-- carta
-- Jogador(FK)
 
