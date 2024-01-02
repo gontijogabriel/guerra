@@ -2,6 +2,7 @@
 BASE DE DADOS
 
 @Jogo
+- 
 - Jogador_Atual
 - Numero_Trocas (INT) default 0
 - Rodada (INT) default 1
@@ -13,6 +14,8 @@ BASE DE DADOS
 - Tropas_Distribuir
 - Paises
 - Cartas
+- Jogador_Vez
+- Ativo (True or False)
 
 @Pais
 - Jogador (FK)
